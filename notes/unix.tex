@@ -1,0 +1,128 @@
+\documentclass{article}
+\begin{document}
+\section{UNIX \& Emacs: Controlling the Machine}
+
+If you are taking this course the chances are that this is your first time that you are confronted to computers using operative systems other than Windows or Mac. Probably you have not have any working experience as to recognize the meanigng the following words: Unix, Linux, Ubuntu, GNU.
+
+UNIX is the most important one. It is the name of a family of operating systems that are very common in academic circles and high performace engineering contexts. If you use an email provider like gmail, you canbe sure that the messages you received today were handled by computers under some flavor of UNIX. If you are thinking about going into research path of astrophysics, high energy physics, geosciences, computational physics or theoretical chemistry (just to name a few) you are bound to make use of systems under UNIX. It could be using GNU/LINUX or MAC operating systems.
+
+
+The purpose of this class is to give you a starting point and get you working as soon as possible in UNIX systems.
+
+\subsection{The Console}
+In UNIX environments you have to learn to control the machine with text. That mens typing text that can be understood by the machine.
+
+The {\tt Terminal} is the place to do just that. Type text and feed it into the machine. As a result you might get it to do what you need. 
+
+Let's assume for a moment that you have logged on and have a terminal open. There must be a cursor showing the place where the text will be written. It looks like this:
+
+\begin{verbatim}
+forero@compufis:~>
+\end{verbatim}
+
+Now write the following existential text and hit the return key
+
+\begin{verbatim}
+forero@compufis:~>whoami
+\end{verbatim}
+
+The terminal will reply back to you by telling you the username you have. If its different from your username it means that you are logged into somebody elses coccount. In my case I get in the terminal:
+
+\begin{verbatim}
+forero
+\end{verbatim}
+
+
+This is summary of the commands you will find yourself using most of the time.
+
+\subsubsection*{Folders}
+\begin{itemize}
+\item\verb"pwd"
+\item\verb"ls"
+\item\verb"cd"
+\item\verb"mkdir"
+\item\verb"rmdir"
+\end{itemize}
+
+
+\subsubsection*{Files}
+\begin{itemize}
+\item 
+\verb"touch" will create a new empty file called \verb"new_file.txt".
+\verb"mv"
+\verb"cp"
+\verb"rm"
+\verb"tar"
+\verb"gzip"
+\end{itemize}
+
+
+Other useful commands to manipulate filecontent
+\begin{itemize}
+\item\verb"less"
+\item\verb"head"
+\item\verb"tail"
+\item\verb"cat"
+\item\verb"tac"
+\item\verb"grep"
+\item\verb"wc"
+\end{itemize}
+
+
+\subsubsection*{External world}
+
+
+\begin{itemize}
+\item\verb"scp"
+\item\verb"rsync"
+\item\verb"wget"
+\item\verb"ssh machinename"
+\end{itemize}
+
+
+\subsubsection*{System}
+\begin{itemize}
+\item\verb"top"
+\item\verb"ps "
+\item\verb"kill -9 PID"
+\item\verb"chmod"
+\end{itemize}
+
+
+
+\subsubsection*{Redirecting output}
+\begin{itemize}
+\item\verb">" Connects a command to a file. Redirects the output of the command on the left to the file on the right. This overwrites the contents in the file 
+\item\verb">>" Same as the previous command with the difference that the output is appended at the bottom of the file.
+\item\verb"|" The Pipe. Connects two commands. Redirects the flux of characters to feed other commands.
+\end{itemize}
+
+\subsubsection*{Useful commands and concepts}
+\begin{itemize}
+\item\verb"man" Manual 
+\item Tab completition:
+\item History:
+\item\verb"Ctrl-r" reverse search in the command history.
+\end{itemize}
+
+\subsection{emacs: a preferred text editor}
+
+\begin{verbatim}
+emacs new_file.txt &
+\end{verbatim}
+
+\begin{itemize}
+\item\verb"Ctrl-x-s"
+\item\verb"Ctrl-x-c"
+\item\verb"Ctrl-k" cut the text in the line after the cursor
+\item\verb"shift-arrow" select text
+\item\verb"Ctrl-w" cut highlighted text
+\item\verb"Ctrl-y" paste
+\item\verb"Ctrl-_" undo
+\item\verb"Meta-x query-replace"
+\end{itemize}
+
+Other common options for people writing code are vim (unix) and TextWrangler (mac). Just don't try to use any other underperforming editor such as \verb"nedit".
+
+\end{document}
+
