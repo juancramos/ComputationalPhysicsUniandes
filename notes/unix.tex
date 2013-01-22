@@ -2,17 +2,16 @@
 \begin{document}
 \section{UNIX \& Emacs: Controlling the Machine}
 
-If you are taking this course the chances are that this is your first time that you are confronted to computers using operative systems other than Windows or Mac. Probably you have not have any working experience as to recognize the meanigng the following words: Unix, Linux, Ubuntu, GNU.
+If you are taking this course probably this is your first time that you are confronted to computers using operative systems other than Windows or Mac. Probably you don't have enough working experience to recognize the meaning the following words: Unix, Linux, Ubuntu, GNU. If you do, congratulations! this part of the course should be easier for you.
 
-UNIX is the most important one. It is the name of a family of operating systems that are very common in academic circles and high performace engineering contexts. If you use an email provider like gmail, you canbe sure that the messages you received today were handled by computers under some flavor of UNIX. If you are thinking about going into research path of astrophysics, high energy physics, geosciences, computational physics or theoretical chemistry (just to name a few) you are bound to make use of systems under UNIX. It could be using GNU/LINUX or MAC operating systems.
-
+UNIX\footnote{Wikipedia says: Unix (officially trademarked as UNIX, sometimes also written as Uɴɪx in small caps) is a multitasking, multi-user computer operating system originally developed in 1969 by a group of AT\&T employees at Bell Labs, including Ken Thompson, Dennis Ritchie, Brian Kernighan, Douglas McIlroy, Michael Lesk and Joe Ossanna.} is the name of a family of operating systems very common in academic circles and high performance engineering. If you use a commercial email provider, you can be sure that the messages you received today were handled by computers under some flavor of UNIX. If you are thinking about going into the research path of astrophysics, high energy physics, geoscience, computational physics or theoretical chemistry (just to name a few) you are bound to make use of systems under UNIX. It could be either GNU/LINUX or MAC operating systems.
 
 The purpose of this class is to give you a starting point and get you working as soon as possible in UNIX systems.
 
 \subsection{The Console}
-In UNIX environments you have to learn to control the machine with text. That mens typing text that can be understood by the machine.
+In UNIX environments you have to learn to control the machine. This can be done with text. That actually means typing text that can be understood by the machine.
 
-The {\tt Terminal} is the place to do just that. Type text and feed it into the machine. As a result you might get it to do what you need. 
+The {\tt Terminal} is the place to do that. Type text and feed it into the machine. As a result you might get it to do what you need. 
 
 Let's assume for a moment that you have logged on and have a terminal open. There must be a cursor showing the place where the text will be written. It looks like this:
 
@@ -26,66 +25,77 @@ Now write the following existential text and hit the return key
 forero@compufis:~>whoami
 \end{verbatim}
 
-The terminal will reply back to you by telling you the username you have. If its different from your username it means that you are logged into somebody elses coccount. In my case I get in the terminal:
+The terminal will reply back to you by telling you the username you have. If its different from your username it means that you are logged into somebody else's account. In my case I get in the terminal:
 
 \begin{verbatim}
 forero
+forero@compufis:~>
 \end{verbatim}
+and the terminal is ready to accept more commands.
 
 
-This is summary of the commands you will find yourself using most of the time.
+This is a summary of the commands you will find yourself using most of the time. Each command includes a brief explanation of its meaning and some useful options to that command. To fully understand them you have to explore by yourself.
 
-\subsubsection*{Folders}
+\subsubsection*{Directories}
 \begin{itemize}
-\item\verb"pwd"
-\item\verb"ls"
-\item\verb"cd"
-\item\verb"mkdir"
-\item\verb"rmdir"
+\item\verb"pwd": present working directory
+\item\verb"ls": list directory contents. \verb"ls -l" shows ownership and size of each file.
+\item\verb"mkdir dirname": create a new directory \verb"dirname"
+\item\verb"cd dirname": change your directory to \verb"dirname". 
+\item\verb"rmdir dirname": remove the directory \verb"dirname". The directory has to be empty. Use \verb"rmdir -r dirname" to recursively remove \verb"dirname".
 \end{itemize}
+
 
 
 \subsubsection*{Files}
 \begin{itemize}
-\item 
-\verb"touch" will create a new empty file called \verb"new_file.txt".
-\verb"mv"
-\verb"cp"
-\verb"rm"
-\verb"tar"
-\verb"gzip"
+\item  \verb"touch filename": changes the timestamp in \verb"filename". If \verb"filename" doesn't exist, it will create it.
+\item\verb"mv filename1 filename2": renames \verb"filename1" as \verb"filename2". It will overwrite \verb"filename2", if it already existed.
+\item\verb"mv filename1 dirname": moves \verb"filename1" into \verb"dirname".
+\item\verb"cp filename1 filename2": copies the contents \verb"filename1" into \verb"filename2". It will overwrite \verb"filename2", if it already existed.
+\item\verb"rm filename": deletes \verb"filename"
+\item\verb"tar -cvf compressed.tar files": used to compress the \verb"files" into \verb"compressed.tar"
+\item\verb"tar -xvf compressed.tar": used to expand the file \verb"compressed.tar".
+\item \verb"gzip filename": compresses \verb"filename" into \verb"filename.gz"
+\item \verb"gunzip filename.gz": expands the file \verb"filename.gz".
 \end{itemize}
 
 
-Other useful commands to manipulate filecontent
+
+Other useful commands to manipulate file content
 \begin{itemize}
-\item\verb"less"
-\item\verb"head"
-\item\verb"tail"
-\item\verb"cat"
-\item\verb"tac"
-\item\verb"grep"
-\item\verb"wc"
+\item\verb"less filename": allows a quick view of \verb"filename".
+\item\verb"head filename": first ten lines in a file.
+\item\verb"tail filename": last ten lines in a file
+\item\verb"cat filename1 filename2": concatenate and print files.
+\item\verb"tac filename1 filename2": concatenate and print files in reverse.
+\item\verb"grep pattern filename": print lines in \verb"filename" matching \verb"pattern"
+\item\verb"wc filename": print line, word and byte counts in \verb"filename". 
 \end{itemize}
 
+These commands are even more useful when you use wildcards.
+\begin{itemize}
+\item\verb"ls *.py": lists all the files ending in \verb".py".
+\item\verb"mv *.py dirname": moves all the files ending in \verb".py" into dirname
+\end{itemize}
 
 \subsubsection*{External world}
 
 
 \begin{itemize}
-\item\verb"scp"
-\item\verb"rsync"
-\item\verb"wget"
-\item\verb"ssh machinename"
+\item\verb"ssh machinename": connects to another machine.
+\item\verb"wget https://www.host.com/file.txt": grabs the \verb"file.txt" from the server \verb"www.host.com".
+\item\verb"scp username@machine:filename ./": copies \verb"filename" from \verb"machine" to the local directory. 
+\item\verb"rsync username@machine:filename ./": copies \verb"filename" from \verb"machine" to the local directory. It can resume the transaction if it dropped before.
 \end{itemize}
 
 
 \subsubsection*{System}
 \begin{itemize}
-\item\verb"top"
-\item\verb"ps "
-\item\verb"kill -9 PID"
-\item\verb"chmod"
+\item\verb"top": Shows the resources in your machine. 
+\item\verb"ps -eaf ": Shows the processes running in the machine.
+\item\verb"kill -9 PID": Kills a process.
+\item\verb"chmod [ugo+-rwx] filename": chages read/write/execution permission.
 \end{itemize}
 
 
@@ -99,10 +109,10 @@ Other useful commands to manipulate filecontent
 
 \subsubsection*{Useful commands and concepts}
 \begin{itemize}
-\item\verb"man" Manual 
-\item Tab completition:
-\item History:
-\item\verb"Ctrl-r" reverse search in the command history.
+\item\verb"man command": shows the manual for \verb"command".
+\item Tab completion: Hit Tab in the middle of a command/filename and it will give you options to complete it.
+\item\verb"history": lists the latest commands.
+\item\verb"Ctrl-r": reverse search in the command history.
 \end{itemize}
 
 \subsection{emacs: a preferred text editor}
@@ -122,7 +132,7 @@ emacs new_file.txt &
 \item\verb"Meta-x query-replace"
 \end{itemize}
 
-Other common options for people writing code are vim (unix) and TextWrangler (mac). Just don't try to use any other underperforming editor such as \verb"nedit".
+Other common options for people writing code are vim (UNIX) and TextWrangler (MAC). 
 
 \end{document}
 
