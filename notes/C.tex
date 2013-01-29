@@ -2,29 +2,27 @@
 \usepackage{verbatim}
 
 \begin{document}
-\section[2]{Basics of C programming}
-This chapter will serve two purposes. First it will show the basic aspects of using a low level language (like FORTRAN or C++) and will introduce the basic features of the C language that will be useful for the rest of the semester.
+\setcounter{section}{1}
+\section{Basics of C programming}
+This chapter will serve two purposes. First it will show the basic aspects of using a low level language (like FORTRAN or C) and will introduce the basic features of the C language that will be useful for the rest of the semester.
 
-There are many good manuals and texts to learn C. The classic book is 
+There are many good manuals and texts to learn C. The classic book is: 
 \begin{itemize}
 \item The C Programming Language, Kernighan and Ritchie, Second Edition, Prentice Hall, 1988.
 \end{itemize}
 
-The book is so popular that you should be able to find at least one pdf copy by googling \verb"kernighan and ritchie pdf". It is important to say that Ritchie invented C and Kernighan wrote the first C tutorial ever.
+The book is so popular that you should be able to find at least one pdf copy by googling \verb"kernighan and ritchie pdf". Keep in mind that Ritchie invented C and Kernighan wrote the first C tutorial ever. You should also try to find a good, modern tutorial on the web. In this notes I will follow closely the structure in Kernighan and Ritchie.
 
-You should also try to find a good, modern tutorial on the web. In this notes I will follow closely the structure in Kernighan and Ritchie.
+\subsection*{Why C and not FORTRAN?}
+C is widely used outside academia. It is good skill to have if you are interested in having a job in interesting places outside universities and scientific laboratories. Besides, the C compilers are now an standard and are commonly included in any UNIX based operative system.
 
-Why C and not FORTRAN?
-C is widely used outside academia. It is good skill to have if you are interested in having a job in interesting places outside universities and scientific laboratories. 
-The C compilers are now an standard and are commonly included in any UNIX based operative system.
+The reality is that you need to learn at least one low level language in order to be productive and useful in academia. {\bf Actually, if you plan to stay in academia you should learn both}.
 
-Why FORTRAN and not C?
-
-The reality is that you need to learn at least one low level language in order to be productive and useful in academia. Actually, you should learn both.
+But remember that in real life the two most popular programming languages are C and Java \footnote{\texttt{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}}. C is estimated to be used by $\sim 18\%$ of the whole programming community. The estimate for FORTRAN is $\sim 0.5\%$
 
 
 \subsection{Write, Compile, Execute}
-Using a low level programming language implies that there is text that must be written into a file. This file will receive the generic name of source code. This file can be editted using any plain text editor. Try to learn EMACS or VIM. In this course we will use EMACS.
+Using a low level programming language implies that there is text that must be written into a file. This file will receive the generic name of {\bf source code}. This file can be edited using any plain text editor. Try to learn EMACS or VIM. In this course we will use EMACS.
 
 \subsubsection{Write}
 Let us first create a working directory called \verb"practice/C/" inside the working directory you have for this class.
@@ -41,28 +39,113 @@ $ emacs hello.c &
 There you can type the following piece of source code
 
 \verbatiminput{../hands_on/C/hello.c}
-\subsection{A more useful example deconstructed}
+
+Save the file.
+
+\subsubsection{Compile}
+In the process of compiling, the {\bf source code} will be translated into another kind of code called {\bf object code} or the {\bf executable}. 
+
+In order to compile the code we have written you have to type:
+\begin{verbatim}
+$cc hello.c -o hello.x
+\end{verbatim}
+
+\verb"cc" is a C and C++ compiler. It takes the argument \verb"hello.c", meaning that it will translate the source code in that file into an executable. The option \verb"-o" followed by \verb"hello.x" indicates that the output executable will be named \verb"hello.x". If you don't specify any output name, the executable will be called \verb"a.out"
+
+\subsubsection{Execute}
+Run the executable file as follows
+\begin{verbatim}
+$./hello.x
+\end{verbatim}
+The result should be
+\begin{verbatim}
+Hello World
+\end{verbatim}
+
+\subsection{Arithmetic}
+Besides printing messages to screen, C can also perform arithmetic computations. Let's start with the following basic example.
+
+\verbatiminput{../hands_on/C/arithmetic.c}
 
 % Making a table of numbers, control flow, arithmetic
 
+There are other mathematical functions you might want to use. In that case you need to include the header file \verb"math.h". Take a look at the following example
+
+\verbatiminput{../hands_on/C/math_arithmetic.c}
+
+Where the function \verb"pow(a,b)" will compute the expression $a^{b}$.
+You will need now an additional option to compile the code.
+
+
+\begin{verbatim}
+$cc math_arithmetic.c -lm -o math_arithmetic.x
+\end{verbatim}
+
+Try to compile it without the \verb"-lm" and see what happens. Also try different numbers for \verb"a" and \verb"b" in \verb"pow(a,b)".
+
 \subsection{Variable types}
+There are very few basic data types that can be represented by variables in C:
+\begin{itemize}
+\item\verb"char" a single byte, holds a character, i.e. letters.
+\item\verb"int" integers, the range is limited to the capabilities in the host machine, i.e. you cannot count till infinity in a program.
+\item\verb"float" single-precision floating point, i.e. real numbers.
+\item\verb"double" double-precision floating point, i.e. real numbers
+\end{itemize}
+
+Each data type has a different formats to be properly displayed to the screen. Be careful on how the format is assigned to the type. Read, compile and execute the following program to see the differences.
+
+\verbatiminput{../hands_on/C/print_types.c}
+
+\subsection{Printing a table. Loops.}
+We switch gears to a more complex example where it will become clear how to execute a loop.
+
+\verbatiminput{../hands_on/C/print_table.c}
+
+Here we have two new things. The \verb"#define" statement which can be used to define strings that will be replaced into the source code by the compiler at the moment of compilation. The second novelty is the \verb"for" structure that will be used to make loops, in this case everything starts with the assignment \verb"i=0", the code inside the curly brackets is executed, at this moment the variable \verb"i" is increased by \verb"+1", if \verb"i<12" the code inside the curly brackets is executed one more time.
 
 \subsection{Arrays}
 
-\subsection{Memory allocation and pointers}
+We might want to store {\bf all} the values in the example above. In that case one option can be the following
+
+\verbatiminput{../hands_on/C/array.c}
+
+The statement \verb" int lista[10];" is new. It defines an array of ten integers. This is done at the moment of compilation. Read, compile and execute. 
+
+{\bf Very important points}. Array indexing in C starts at \verb"0", not at \verb"1". If you need the first three items, you need \verb"lista[0]", \verb"lista[1]" and \verb"lista[2]".
+
+Having the arrays in this ways is not very flexible. Many times you don't know in advance how large the array must be. In that case you need dynamic memory allocation.
+
+
+\subsection{Dynamics Memory allocation and pointers}
+The following is a basic example in memory allocation
+
+\verbatiminput{../hands_on/C/memory_allocation.c}
+
+The most important thing in this case is the character \verb"*". This is going to tell you that \verb"array_int" is of type \verb"{int *}", meaning that it is {\bf a pointer of type int}. The variable \verb"array_int" is going to give you the address of a place in memory.
+
+The \verb"malloc" function will reserve (allocate) a number of bytes in memory. In this case this number is \verb"10" times the bytes that a integer needs to be stored in memory \verb"sizeof(int)". 
+
+The \verb"if" statement check whether the pointer is zero or not. If the value between parenthesis is zero or \verb"NULL", it is considered as True, and will execute the code between curly braces. From that point on, \verb"array_int[i]" can be used to designate the item \verb"i" in the array.
+
+In C you have a great power to handle memory. But, with great power comes great responsibility. The responsibility is that you have to check that you are never going to use memory outside the region that was allocated.
+
+Read, print and execute the code to see what happens if you try to use memory beyond the bounds of your allocation.
 
 \subsection{String Arrays}
 
+\verbatiminput{../hands_on/C/string.c}
+
 \subsection{If, do-while}
 
+\verbatiminput{../hands_on/C/if_while.c}
+
 \subsection{Your own functions}
+\verbatiminput{../hands_on/C/main_function.c}
 
 \subsection{Input/Output from files}
-
-\subsection{Dealing with multiple source files}
+\verbatiminput{../hands_on/C/IO_file.c}
 
 \subsection{Command line input}
-
-\subsection{The same things}
+\verbatiminput{../hands_on/C/command_line.c}
 
 \end{document}
