@@ -22,6 +22,9 @@ int main(void){
     exit(1);
   }
 
+  /*print the memory address*/
+  printf("Memory starts at %p\n", array_int);
+
   /*fill the array with data*/
   printf("Allocation went OK. Initializing...\n");
   for(i=0;i<n_points;i++){
@@ -33,7 +36,7 @@ int main(void){
   /*What if I try to go a bit beyond?*/
   array_int[n_points] = n_points * 2;
   printf("%d\n", array_int[n_points]);   
-  printf("OK.")
+  printf("OK.");
 
   /*What if I go far away?*/
   printf("and if I go far away?\n");
