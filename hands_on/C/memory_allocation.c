@@ -1,5 +1,6 @@
 /*
-  Examples of successful memory allocation and buffer overflow i.e. violation of memory safety.
+  Examples of successful memory allocation and buffer overflow 
+  i.e. violation of memory safety.
 */
 #include <stdio.h>
 #include <stdlib.h>
