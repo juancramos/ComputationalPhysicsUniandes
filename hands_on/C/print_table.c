@@ -23,7 +23,7 @@ int main(void){
   for(i=0; i<12; i++){
     radius = i;
     surface = 4.0 * PI * radius * radius;
-    volume = (4.0 / 3.0 ) * radius * radius * radius;
+    volume = (4.0 / 3.0 ) * PI * radius * radius * radius;
     /*output the values to the screen*/
     printf("%f %f %f\n", radius, surface, volume);
   }
