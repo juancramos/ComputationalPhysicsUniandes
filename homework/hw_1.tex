@@ -1,30 +1,71 @@
 \documentclass{article}
+\title{Taller \#1. F\'isica Computacional / FISI 2025 \\Semestre 2013-I. \\ Profesor: Jaime E. Forero Romero}
+\date{Enero 31 2013}
 \begin{document}
+\maketitle
 
-Homework\\
+{\bf Esta tarea debe ser enviada por correo electr\'onico antes del medio d\'ia del martes 5 de Febrero del 2013 a la direcci\'on {\tt j.e.forero.romero} en {\tt gmail} con el subject \verb"RESPUESTA TALLER 1 FISICA COMPUTACIONAL"}.
+
 \begin{enumerate}
 \item
-Crear un directorio que se llame con el codigo de cada uno.
-Adentro crear dos directorios uno que se llame 'data' y otro que se llame 'src'
+Crear un archivo que tenga el siguiente nombre:\\
+\verb"contacto_de_NombreApellido.txt"\\
+donde \verb"NombreApellido" lo deben reemplazar por su nombre y apellido. Por ejemplo, yo crear\'ia el archivo \verb"contacto_de_JaimeForero.txt".
 
 \item
-Adentro de 'data' cCrear 12 directorios con los nombres de cada mes en espanol.
-Adentro de cada directorio crear un archivo que se llame 'gente.txt'que cumpla anos ese mes.
-Comprimir la estructura completa de directorios en un tgz.
+Este archivo debe contener cuatro l\'ineas: en la primera el nombre completo de un conocido de ustedes, en la segunda la fecha de la \'ultima vez que tuvieron contacto con el/ella, en la tercera l\'inea la ciudad y pa\'is donde vive esta persona y en la cuarta l\'inea un mensaje breve de 140 caracteres como m\'aximo.
+El formato \underline{debe} ser el siguiente
+
+\begin{verbatim}
+Lucia Ayala
+3 Enero 2013
+Berkeley, USA
+Sin importar lo que pase, siempre te estare esperando.
+\end{verbatim}
 
 \item
-En cada uno de los archivos escribir cuatro lineas: en la primera la fecha en la ultima vez que tuvo contacto con esta persona, en la segunda linea la ciudad y pais donde vive esta persona y en la tercera linea un mensaje breve de 140 caracteres maximo.
+Aparte deben escribir un programa en C que se llame\\ \verb"carta_de_NombreApellido.c"\\ donde \verb"NombreApellido" se reemplaza por su nombre y apellidos. 
+
+El c\'odigo debe poder compilarse asi:
+\begin{verbatim}
+cc carta_de_NombreApellido.c
+\end{verbatim}
+
+
+El programa debe tomar cuatro argumentos:\\
+ el archivo \verb"contacto_de_NombreApellido.txt", un dia, un mes y un a\~no y debe poder ejecutarse as\'i:
+\begin{verbatim}
+./a.out  contacto_de_NombreApellido.txt 31 Enero 2013
+\end{verbatim}
+
+Al ejecutarse el programa debe producir el siguiente resultado
+
+\begin{verbatim}
+Bogota [Fecha]
+Hola [Nombre y Apellidos del conocido]'
+Hace unos [X] dias que no te escribo, por eso quisiera aprovechar 
+este momento para decirte algo que siempre  pense en decir: 
+
+[Mensaje dentro del archivo de texto]
+
+Espero que nos podamos ver pronto en [ciudad], siempre he 
+querido visitar [pais].
+
+Saludos,
+[Nombre]
+\end{verbatim}
 
 \item
-Adentro de 'src' escribir en C un programa que busque mes por mes los archivos txt y escriba por cada mes un
-archivo de texto que contenga lo siguiente:
+Enviar por correo el codigo fuente de C y el archivo \verb".txt". Siguiendo el ejemplo, yo enviar\'ia dos archivos:\\ \verb"carta_de_JaimeForero.c" \\ \verb"contacto_de_JaimeForero.txt"
 
 \item
-'Querido [Nombre y Apellido del amigo o familiar]'
-Hace [] dias que no te escribo, por eso quisiera aprovechar este momento para decirte algo que siempre 
-pense en decir: [Mensaje dentro del archivo de texto]
+La calificaci\'on tendr\'a tres partes consecutivas. 
+\begin{itemize}
+\item El c\'odigo fuente debe compilar (30\%).
+\item El c\'odigo debe funcionar de manera adecuada con el archivo del amigo que cada uno env\'ia y una fecha arbitraria de entrada (30\%).
+\item El c\'odigo debe funcionar de manera adecuada con un archivo de texto que yo produzco y una fecha arbitraria de entrada (40\%).
+\end{itemize}
 
-\item
-Enviar un archivo comprimido que contenga la estructura completa de archivos creada para esta tarea.
+Nota: No tomen en cuenta los a\~nos bisiestos ni los cambios hist\'oricos de calendario. Para este taller todos los a\~nos han tenido y tendr\'an 365 d\'ias.
 \end{enumerate}
 \end{document}
