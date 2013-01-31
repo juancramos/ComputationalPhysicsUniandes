@@ -1,3 +1,9 @@
+/*
+  First writes the months of the year and its corresponding number 
+  of days to a file. 
+  Afterwards it reads the same file and prints to screen its contents.
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -26,6 +32,7 @@ int main(void){
   strcpy(months[11], "Diciembre");
   
   
+
   printf("Writing to file: %s\n", filename);
 
   /*opens the file, writes, closes the file*/
