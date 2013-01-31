@@ -1,5 +1,5 @@
 /*
-  This program takes as three numbers as arguments.
+  This program takes three numbers as arguments.
   The first one is an integer, the other two are floats.
   If loops the number of times indicated by the integer
   printing the produc of the two floats and the the loopindex.
