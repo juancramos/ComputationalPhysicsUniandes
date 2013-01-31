@@ -24,6 +24,7 @@ int main(int argc, char **argv){
   value_a = atof(argv[2]);
   value_b = atof(argv[3]);
 
+
   for(i=0;i<n_times;i++){
     printf("i=%d, a=%f b=%f, a*b*i=%f\n", i, value_a, value_b, value_a*value_b*i);
   }
