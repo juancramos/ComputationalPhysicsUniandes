@@ -1,7 +1,9 @@
 /*
-  First writes the months of the year and its corresponding number 
-  of days to a file. 
-  Afterwards it reads the same file and prints to screen its contents.
+  First writes the months of the year and its 
+  corresponding number  of days to a file. 
+
+  Afterwards it reads the same file and prints out 
+  its contents to the screen.
 */
 
 #include <stdlib.h>
