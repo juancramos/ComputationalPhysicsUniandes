@@ -19,7 +19,7 @@ int main(void){
   a=1;
   b=1;
   if(a<b){
-    printf("a is greater than b: a=%d, b=%d\n", a, b);
+    printf("a is less than b: a=%d, b=%d\n", a, b);
   }else{
     printf("a is equal or greater than b: a=%d, b=%d\n", a, b);
   }
