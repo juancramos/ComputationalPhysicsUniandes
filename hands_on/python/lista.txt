@@ -1,0 +1,3 @@
+Jaime 23 1.0
+Miguel 45 0.4
+Diana 34 0.4
