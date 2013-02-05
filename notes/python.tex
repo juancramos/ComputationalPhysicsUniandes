@@ -10,17 +10,17 @@ Source: {\texttt http://xkcd.com/353/}
 \end{center}
 \section{Basics of Python}
 Python is a {\bf high-level} language. There are big advantages in
-working with such languages. The most important is that they are
+working with such languages. The most important is that source code is
 faster to write and easier to read. You won't have to declare the type
-of the variables or allocate the memory by yourself  
+of the variables or allocate the memory by yourself!
 
 In these kind of languages the compiling process is absent. You start
 writing source code and then feed-it into an interpreter which is in
-charge of executing thr program. The interpretation and execution
-occur alternately. In the case of a {\bf low-level} language the
+charge of executing the program. The interpretation and execution
+occur alternately. Remember that in the case of a {\bf low-level} language the
 compiler reads and translates the source code before execution. 
 
-Python source code is exectuted by an interpreter that you can call
+Python source code is executed by an interpreter that you can call
 from the terminal: 
 \begin{verbatim}
 $python
@@ -30,8 +30,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 \end{verbatim}
 
-The prompt \verb">>>" indicates that the Python interpreters is ready
-to receive instructions, after each instruction the interpreter
+The prompt \verb">>>" indicates that the Python interpreter is ready
+to receive instructions. After each instruction the interpreter
 displays the result. For instance 
 
 \begin{verbatim}
@@ -48,31 +48,32 @@ or in the case of arithmetic operations
 
 You can also interact with the interpreter by writing all the lines
 that you want to be interpreted into a text file with the extension
-\verb".py". In that case the interpreation and execution can be called
+\verb".py". In that case the interpretation and execution can be called
 from the terminal as follows. 
 
 \begin{verbatim}
 $ python mycode.py
 \end{verbatim}
 
-We are interested in covering the very basics of python. The recommended reference is the online text:
+In this class we are interested in covering the very basics of python. The
+recommended reference is this on-line text: 
 
 \begin{itemize}
 \item Think Python: How to Think Like a Computer Scientist, Allen
   B. Downey.\\\verb"http://www.greenteapress.com/thinkpython/html/index.html" 
 \end{itemize}
 
-After knowing the basics a very useful repository for doing simple
-things with Python is here:  
-
+After knowing the basics a very useful repository for useful recipes
+in Python is here:
 
 \begin{itemize}
 \item Python Grimoire: \\\verb"https://taoofmac.com/media/dev/Python/Grimoire/grimoire.html"
 \end{itemize}
 
-In what follows I go through basic concepts in python with examples
+In what follows I will go through basic concepts in python illustrated
+by source code.
 
-\subsubsection{My first pytho program}
+\subsubsection{My first Python program}
 
 Save the following code in a file \verb"hello.py"
 \verbatiminput{../hands_on/python/hello.py}
@@ -82,20 +83,18 @@ Then execute it as:
 $python hello.py
 \end{verbatim}
 
+Compare it to the C source code. Smile.
+
 \subsection{Variables and Statements}
 You don't need to declare the type of the variable before using them. 
  
-
 \verbatiminput{../hands_on/python/variables.py}
 
 
 You can also perform simple arithmetic operations
-
-
 \verbatiminput{../hands_on/python/arithmetic.py}
 
-advanced functions can should be used in the following way
-
+Advanced functions can should be used in the following way
 \verbatiminput{../hands_on/python/math.py}
 
 
@@ -107,24 +106,9 @@ The most common way to control the flow with the program is with the
 
 
 \subsection{Iteration}
+Iteration comes in a flavor of \verb"for" loops:
 \verbatiminput{../hands_on/python/print_table.py}
-\subsection{Strings}
 
-\subsection{Functions}
-
-The definition of functions follows the generic form:
-
-\begin{verbatim}
-def function_name(inputs):
-    statements
-\end{verbatim}
-
-The indentations of the statements is {\bf very important}.  This is
-the way the interpreter recognizes the end and the beginning of your
-function. Here is an example of two functions   
-
-
-\verbatiminput{../hands_on/python/functions.py}
 
 \subsection{Lists}
 One of the most basic and useful structures in python are lists. They
@@ -161,5 +145,20 @@ for item in list:
 \subsection{Reading files}
 
 \verbatiminput{../hands_on/python/read_file.py}
+
+\subsection{Functions}
+The definition of functions follows the generic form:
+
+\begin{verbatim}
+def function_name(inputs):
+    statements
+\end{verbatim}
+
+The indentations of the statements is {\bf very important}.  This is
+the way the interpreter recognizes the end and the beginning of your
+function. Here is an example of two functions   
+
+
+\verbatiminput{../hands_on/python/functions.py}
 
 \end{document}
