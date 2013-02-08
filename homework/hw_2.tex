@@ -1,0 +1,83 @@
+\documentclass{article}
+\title{Taller \#2. F\'isica Computacional / FISI 2025 \\Semestre 2013-I. \\ Profesor: Jaime E. Forero Romero}
+\date{Febrero 7 2013}
+\begin{document}
+\maketitle
+
+{\bf Esta tarea debe estar en un repositorio de la cuenta de github de
+  cada uno con un commit final hecho antes del medio d\'ia del jueves
+  14 de Febrero del 2013} 
+
+\begin{enumerate}
+\item
+Visiten la p\'agina \verb"http://www.gutenberg.org/catalog/". Vamos a
+elegir algunos libros para trabajar. 
+
+\item
+Bajen la version de texto simple UTF-8 (no HTML, EPUB o Kindle) de un
+libro en cada uno de los cinco idiomas siguientes:  
+\begin{itemize}
+\item ingl\'es: \verb"http://www.gutenberg.org/browse/languages/en"
+\item espa\~nol: \verb"http://www.gutenberg.org/browse/languages/es"
+\item finland\'es: \verb"http://www.gutenberg.org/browse/languages/fi"
+\item italiano: \verb"http://www.gutenberg.org/browse/languages/it"
+\item ingl\'es antiguo: \verb"http://www.gutenberg.org/browse/languages/ang"
+\end{itemize}
+
+\item
+Escriba un programa en Python que cuente cu\'antos caracteres
+diferentes hay en cada uno de los libros. Los caracteres con
+di\'eresis o tildes cuentan como caracteres diferentes. Los signos de
+puntuaci\'on no se deben incluir en la cuenta. 
+
+\item 
+Por cada caracter diferente calcule su frecuencia en el texto. Es decir, el
+porcentaje de veces que aparece cada caracter con respecto
+al n\'umero total de caracteres en el texto. 
+
+\item 
+En el caso de un libro llamado \verb"DonQuijoteDeLaMancha.txt"
+el c\'odigo se debe poder ejecutar de la siguiente manera: 
+\begin{verbatim}
+python frecuencias.py DonQuijoteDeLaMancha.txt
+\end{verbatim}
+
+\item
+El output del c\'odigo en Python debe ser un archivo de texto por cada
+libro elegido. En el caso de este ejemplo, el archivo de salida se
+debe llamar \verb"frecuencias_DonQuijoteDeLaMancha.txt".  
+
+\item
+En el archivo de texto se deben escribir dos columnas: en la primera
+los caracteres del libro y en la segunda su frecuencia. Las filas
+deben estar ordenadas en orden decreciente de frecuencia. 
+
+\item
+El codigo fuente de Python y los archivos de los libros deben estar en
+un repositorio de GitHub. Dentro del repositorio, deben estar adentro
+de un directorio que se llame 
+\verb"python". 
+
+\item
+Si tienen algun comentario que hacer sobre las diferentes distribuciones
+de caracteres en los idiomas estudiados lo pueden incluir en un archivo de
+texto que se llame \verb"comentario.txt"
+
+\item
+Enviar un email la direcci\'on {\tt j.e.forero.romero} en {\tt
+  gmail} con el subject
+\verb"RESPUESTA TALLER 2 FISICA COMPUTACIONAL". En el cuerpo del texto
+debe ir la direcci\'on del repositorio donde est\'a la tarea. 
+
+\item
+La calificaci\'on se har\'a en tres partes.
+\begin{itemize}
+\item El c\'odigo fuente y los libros est\'an en un repositorio de
+  github (20\%). 
+\item El c\'odigo funciona de manera adecuada con los cinco libros
+  elegidos (60\%). 
+\item El c\'odigo funciona de manera adecuada con un libro en
+  esperanto de mi elecci\'on. (20\%) 
+\end{itemize}
+\end{enumerate}
+\end{document}
