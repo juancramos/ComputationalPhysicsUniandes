@@ -1,0 +1,146 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{amssymb}
+
+\newcommand{\real}{\mathbb{R}}
+\usepackage{verbatim}
+
+\begin{document}
+\setcounter{section}{3}
+\section{Linear Algebra and Regresions}
+In this chapter we will see how basic linear algebra concepts will serve us to create models to interpret a set of measured points.
+
+With basic linear algebra and matrix notation, we will be ablo to estimate parameters in a model (i.e. by making least square fittig) or explore data by using non parametric descriptions like Principal Component Analysis.
+
+Before diving into direct applications we will start by 
+understading what is the best way to use matrices in C and how to take advantage of the GNU Scientific Library.
+
+
+\subsection{Matrices}
+We will consider a matrix as a rectangular array of real (or complex) numbers aranged in sets of $m$ rows with $n$ entries. The set of matrices with real coeficients with size $m\times n$ is called $\real^{m\times n}$. In the context of this chapter vectors will be understood as a column vectors, that is as a matrix of one column belonging to the set $\real^{m}$. 
+
+We will refer to the $a_{ij}$ element of matrix ${\mathbf A}$ to indicate the element located in row $i$ and column $j$. In the case of a vector ${\mathbf x}$ we will refer to its components as $x_{i}$.
+
+
+\begin{displaymath}
+\mathbf{A} = 
+\left[
+\begin{array}{cccc}
+a_{11}  & a_{12}  & \dots & a_{1n}   \\
+a_{21}  &  \ddots &  & \vdots  \\
+\vdots  &  & \cdots & a_{mn}   
+\end{array}
+\right]
+\qquad
+\mathbf{x} = 
+\left[
+\begin{array}{c}
+x_{1}     \\
+x_2          \\
+\vdots     \\
+x_{m}   
+\end{array}
+\right]
+\end{displaymath}
+
+
+\subsection{Matrices as pointers in C}
+Matrices in C are best stored as one dimensional arrays. This implies that there is convention to translate the position $i,j$ in the matrix into the index $p$ in the one dimensional array. 
+
+This convention in C is called {\bf raw major order}, where the second index moves continously in memory. It means that the following $3\times 3$ matrix:
+
+
+\begin{displaymath}
+\mathbf{A} = 
+\left[
+\begin{array}{ccc}
+a_{11}  & a_{12} & a_{13}   \\
+a_{21}  & a_{22}   & a_{23}  \\
+a_{31}  & a_{32} & a_{33}   
+\end{array}
+\right]
+\end{displaymath}
+
+will be stored in memory as the following one dimensional array
+
+\begin{displaymath}
+\mathbf{a} = 
+\left[
+\begin{array}{ccccccccc}
+a_{11}  & a_{12} & a_{13}   & a_{21}  & a_{22}   & a_{23}  & a_{31}  & a_{32} & a_{33}   
+\end{array}
+\right]
+\end{displaymath}.
+
+In FORTRAN the convention is the opposite, the first index moves continously in memory. This convention is known as {\bf column major order}. 
+
+In the following example we define a matrix $5\times 5$ and initialize it to be 
+the identity.
+
+\verbatiminput{../hands_on/lin_algebra/identity.c}
+
+
+\subsection{Functions taking pointers in C}
+We go into the details of dealing with a array/matrix operation in C. Most of the operations we make onto a matrix will be done using funcitions. Functions in C work with variables passed as reference, not as values. That means that if you want to have a variable modified, you have to give the address where the variable lives in memory. In practice, that means that you should work only with pointers.
+
+
+In the next example we define a matrix $3\times3$ an take its transpose.
+
+\verbatiminput{../hands_on/lin_algebra/transpose.c}
+
+What would happen if you try to modify the variable \verb"n_x" inside a function?
+
+\subsection{GNU Scientific Library}
+
+Most of the computations that we will perform in C will be done using external libraries. We will tap on the work done by other people. However simple it may seem it is important that you understand how external libraries can be used in C.
+
+Let's start by considering the following example that uses the gsl library to compute the the Bessel function $J_{0}(x)$ for $x=5$:
+
+\begin{verbatim}
+#include <stdio.h>
+#include <gsl/gsl_sf_bessel.h>
+     
+int main (void){
+       double x = 5.0;
+       double y = gsl_sf_bessel_J0 (x);
+       printf ("J0(%g) = %.18e\n", x, y);
+       return 0;
+}
+\end{verbatim}
+
+If the setup for the library are the standard ones, the program can be compiled as
+
+\begin{verbatim}
+cc -lgsl -lm test.c 
+\end{verbatim}
+
+
+
+If you are under UBUNTU probably the compilation order matters and you should instead write
+
+\begin{verbatim}
+cc test.c -lgsl -lm 
+\end{verbatim}
+
+Executing the program will produce the following results:
+
+\begin{verbatim}
+J0(5) = -1.775967713143382642e-01
+\end{verbatim}.
+
+
+GSL also has special libraries to deal with linear algebra operations. A detailed webpage including the manual and useful examples can be found here:
+
+\begin{verbatim}
+http://www.gnu.org/software/gsl/manual/html_node/
+\end{verbatim}
+
+Now try to follow the structure in the following program that takes a square matix and computes its eigenvalues\footnote{Example taken from the example manual of the GSL webpage.}):
+
+
+\verbatiminput{../hands_on/lin_algebra/eigen.c}
+
+
+
+\end{document}
