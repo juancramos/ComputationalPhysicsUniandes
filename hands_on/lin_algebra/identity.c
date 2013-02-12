@@ -31,7 +31,7 @@ int main(void){
   /*Prints to screen*/
   for(i=0;i<n_x;i++){
     for(j=0;j<n_y;j++){
-      pos = i + (n_x * j);/*position in the array*/
+      pos = j + (n_y * i);/*position in the array*/
 	fprintf(stdout, " %f ",I[pos]);
     }
     fprintf(stdout, "\n");
